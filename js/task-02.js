@@ -7,12 +7,16 @@ const ingredients = [
     'Приправи',
 ];
 
-const list = document.querySelector('ul#ingredients');
-const ingredientsLiEl = (array) => {
-    let text = "";
-    array.forEach(ingredient => text += `<li>${ingredient}</li>`);
-    list.insertAdjacentHTML('beforeend', text);
-}
+const list = document.querySelector('#ingredients');
 
-document.querySelector('#mainButton').onclick = () => ingredientsLiEl(ingredients);
+const ingredientsLiEl = options => {
+    return options.map(ingredient => {
+        const item = document.createElement('li');
+        item.textContent = ingredient;
+        return item;
+    });
+};
 
+const elements = ingredientsLiEl(ingredients);
+
+document.querySelector('#mainButton').onclick = () => list.append(...elements);

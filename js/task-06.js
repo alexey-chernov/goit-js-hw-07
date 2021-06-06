@@ -7,7 +7,7 @@ function validation(isValid) {
 }
 
 function targetCheck() {
-    const actions = validation(inputTarget.value.length >= inputTarget.getAttribute('data-length'));
+    const actions = validation(inputTarget.value.length == inputTarget.getAttribute('data-length'));
     inputTarget.classList.add(actions.toAdd);
     inputTarget.classList.remove(actions.toRemove);
 }

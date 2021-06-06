@@ -1,7 +1,9 @@
 const counterValue = document.querySelector('span#value');
 
 const changeValue = (sign) => {
-    counterValue.textContent = (sign === '+') ? ++counterValue.textContent : --counterValue.textContent;
+    let counter = counterValue.textContent;
+    counter = (sign === '+') ? ++counter : --counter;
+    counterValue.textContent = counter;
 }
 
 document.querySelector('button[data-action="increment"]').onclick = () => changeValue('+');
