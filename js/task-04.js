@@ -1,10 +1,18 @@
-const counterValue = document.querySelector('span#value');
+let counterValue = document.getElementById('value');
 
-const changeValue = (sign) => {
-    let counter = counterValue.textContent;
-    counter = (sign === '+') ? ++counter : --counter;
-    counterValue.textContent = counter;
-}
+const buttons = document.querySelectorAll('button');
+const decBtn = buttons[0];
+const inkBtn = buttons[1];
 
-document.querySelector('button[data-action="increment"]').onclick = () => changeValue('+');
-document.querySelector('button[data-action="decrement"]').onclick = () => changeValue('-');
+const increment = () => {
+    counterValue.textContent = parseInt(counterValue.textContent) + 1;
+};
+
+inkBtn.addEventListener('click', increment);
+
+const decrement = () => {
+    counterValue.textContent = parseInt(counterValue.textContent) - 1;
+};
+
+decBtn.addEventListener('click', decrement);
+
